@@ -59,7 +59,7 @@ export const HomeHero = () => {
           >
             <Button
               component={RouterLink}
-              href={paths.register}
+              href={paths.auth.register}
               startIcon={
                 <SvgIcon fontSize="small">
                   <EyeIcon />

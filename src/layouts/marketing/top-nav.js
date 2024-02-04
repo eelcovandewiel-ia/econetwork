@@ -31,7 +31,7 @@ const items = [
   },
   {
     title: 'Register',
-    path: paths.register,
+    path: paths.auth.register,
   }, {
     title: 'Contact',
     path: paths.contact,
@@ -196,7 +196,7 @@ export const TopNav = (props) => {
             <Button
               component="a"
               size={mdUp ? 'medium' : 'small'}
-              href="/login"
+              href="/auth/login"
               target="_blank"
               variant="contained"
             >

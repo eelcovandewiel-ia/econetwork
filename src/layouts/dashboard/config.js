@@ -336,19 +336,7 @@ export const useSections = () => {
               </SvgIcon>
             ),
             items: [
-              {
-                title: t(tokens.nav.login),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.login.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.login.modern,
-                  },
-                ],
-              },
+             
               {
                 title: t(tokens.nav.register),
                 items: [

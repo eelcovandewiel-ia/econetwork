@@ -64,3 +64,133 @@ Import trace for requested module:
 [debug] [2024-02-04T12:41:57.251Z] Error: ENOENT: no such file or directory, open '/Users/eelcovandewiel/Development/local/green-gas-platform/next-pages-javascript/.next/export-marker.json'
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2024-02-04T12:47:47.813Z] ----------------------------------------------------------------------
+[debug] [2024-02-04T12:47:47.817Z] Command:       /Users/eelcovandewiel/.nvm/versions/node/v20.6.1/bin/node /Users/eelcovandewiel/.nvm/versions/node/v20.6.1/bin/firebase deploy
+[debug] [2024-02-04T12:47:47.817Z] CLI Version:   13.1.0
+[debug] [2024-02-04T12:47:47.817Z] Platform:      darwin
+[debug] [2024-02-04T12:47:47.818Z] Node Version:  v20.6.1
+[debug] [2024-02-04T12:47:47.818Z] Time:          Sun Feb 04 2024 13:47:47 GMT+0100 (Central European Standard Time)
+[debug] [2024-02-04T12:47:47.818Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-04T12:47:47.852Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-04T12:47:47.853Z] > authorizing via signed-in user (eelco@nxtnxt.nl)
+[debug] [2024-02-04T12:47:47.853Z] [iam] checking project econetwork-3280e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-02-04T12:47:47.853Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions [none]
+[debug] [2024-02-04T12:47:47.853Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions x-goog-quota-user=projects/econetwork-3280e
+[debug] [2024-02-04T12:47:47.854Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-02-04T12:47:48.490Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions 200
+[debug] [2024-02-04T12:47:48.491Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-02-04T12:47:48.492Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e [none]
+[debug] [2024-02-04T12:47:48.739Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e 200
+[debug] [2024-02-04T12:47:48.739Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e {"projectId":"econetwork-3280e","projectNumber":"391388238295","displayName":"EcoNetwork","name":"projects/econetwork-3280e","resources":{"hostingSite":"econetwork-3280e","storageBucket":"econetwork-3280e.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_e7470f47-a617-4916-b8ff-af1281f47e72"}
+[debug] [2024-02-04T12:47:50.020Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites pageToken=&pageSize=10
+[debug] [2024-02-04T12:47:50.932Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites 200
+[debug] [2024-02-04T12:47:50.933Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites {"sites":[{"name":"projects/econetwork-3280e/sites/econetwork-3280e","defaultUrl":"https://econetwork-3280e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-02-04T12:47:50.934Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites 
+[debug] [2024-02-04T12:47:51.192Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites 200
+[debug] [2024-02-04T12:47:51.192Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites {"sites":[{"name":"projects/econetwork-3280e/sites/econetwork-3280e","defaultUrl":"https://econetwork-3280e.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-02-04T12:47:51.193Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e/webApps/-/config [none]
+[debug] [2024-02-04T12:47:51.773Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e/webApps/-/config 200
+[debug] [2024-02-04T12:47:51.773Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e/webApps/-/config {"projectId":"econetwork-3280e","appId":"1:391388238295:web:ce05b331a50f406393fb92","storageBucket":"econetwork-3280e.appspot.com","locationId":"europe-west","apiKey":"AIzaSyDJb3CpYcTT0mhdk3D0TfY9Tvr1NLE8rW0","authDomain":"econetwork-3280e.firebaseapp.com","messagingSenderId":"391388238295","measurementId":"G-PFKLC4E9BD"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-02-04T12:47:54.299Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites/econetwork-3280e [none]
+[debug] [2024-02-04T12:47:54.488Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites/econetwork-3280e 200
+[debug] [2024-02-04T12:47:54.488Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites/econetwork-3280e {"name":"projects/econetwork-3280e/sites/econetwork-3280e","defaultUrl":"https://econetwork-3280e.web.app","type":"DEFAULT_SITE"}
+[info] - info Loaded env from /Users/eelcovandewiel/Development/local/econetwork/.env
+
+[info] - info Linting and checking validity of types...
+
+[info] - info Creating an optimized production build...
+
+[info] Failed to compile.
+
+
+[info] ./node_modules/jpeg-exif/lib/index.js
+Module not found: Can't resolve 'fs'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/@react-pdf/pdfkit/lib/pdfkit.browser.js
+./node_modules/@react-pdf/renderer/lib/react-pdf.browser.es.js
+./src/pages/dashboard/invoices/[invoiceId].js
+
+
+> Build failed because of webpack errors
+
+[debug] [2024-02-04T12:48:22.966Z] Error: ENOENT: no such file or directory, open '/Users/eelcovandewiel/Development/local/econetwork/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-02-04T12:48:51.301Z] ----------------------------------------------------------------------
+[debug] [2024-02-04T12:48:51.302Z] Command:       /Users/eelcovandewiel/.nvm/versions/node/v20.6.1/bin/node /Users/eelcovandewiel/.nvm/versions/node/v20.6.1/bin/firebase deploy
+[debug] [2024-02-04T12:48:51.302Z] CLI Version:   13.1.0
+[debug] [2024-02-04T12:48:51.302Z] Platform:      darwin
+[debug] [2024-02-04T12:48:51.303Z] Node Version:  v20.6.1
+[debug] [2024-02-04T12:48:51.303Z] Time:          Sun Feb 04 2024 13:48:51 GMT+0100 (Central European Standard Time)
+[debug] [2024-02-04T12:48:51.303Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-04T12:48:51.336Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-04T12:48:51.336Z] > authorizing via signed-in user (eelco@nxtnxt.nl)
+[debug] [2024-02-04T12:48:51.336Z] [iam] checking project econetwork-3280e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-02-04T12:48:51.337Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions [none]
+[debug] [2024-02-04T12:48:51.337Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions x-goog-quota-user=projects/econetwork-3280e
+[debug] [2024-02-04T12:48:51.337Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-02-04T12:48:51.530Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions 200
+[debug] [2024-02-04T12:48:51.530Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/econetwork-3280e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-02-04T12:48:51.531Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e [none]
+[debug] [2024-02-04T12:48:51.766Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e 200
+[debug] [2024-02-04T12:48:51.766Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/econetwork-3280e {"projectId":"econetwork-3280e","projectNumber":"391388238295","displayName":"EcoNetwork","name":"projects/econetwork-3280e","resources":{"hostingSite":"econetwork-3280e","storageBucket":"econetwork-3280e.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_e7470f47-a617-4916-b8ff-af1281f47e72"}
+[debug] [2024-02-04T12:48:52.939Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites pageToken=&pageSize=10
+[debug] [2024-02-04T12:48:53.761Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites 200
+[debug] [2024-02-04T12:48:53.762Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites {"sites":[{"name":"projects/econetwork-3280e/sites/econetwork-3280e","defaultUrl":"https://econetwork-3280e.web.app","appId":"1:391388238295:web:ce05b331a50f406393fb92","type":"DEFAULT_SITE"}]}
+[debug] [2024-02-04T12:48:53.762Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:391388238295:web:ce05b331a50f406393fb92/config [none]
+[debug] [2024-02-04T12:48:54.393Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:391388238295:web:ce05b331a50f406393fb92/config 200
+[debug] [2024-02-04T12:48:54.393Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:391388238295:web:ce05b331a50f406393fb92/config {"projectId":"econetwork-3280e","appId":"1:391388238295:web:ce05b331a50f406393fb92","storageBucket":"econetwork-3280e.appspot.com","locationId":"europe-west","apiKey":"AIzaSyDJb3CpYcTT0mhdk3D0TfY9Tvr1NLE8rW0","authDomain":"econetwork-3280e.firebaseapp.com","messagingSenderId":"391388238295","measurementId":"G-PFKLC4E9BD"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-02-04T12:48:56.907Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites/econetwork-3280e [none]
+[debug] [2024-02-04T12:48:57.098Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites/econetwork-3280e 200
+[debug] [2024-02-04T12:48:57.098Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/econetwork-3280e/sites/econetwork-3280e {"name":"projects/econetwork-3280e/sites/econetwork-3280e","defaultUrl":"https://econetwork-3280e.web.app","appId":"1:391388238295:web:ce05b331a50f406393fb92","type":"DEFAULT_SITE"}
+[info] - info Loaded env from /Users/eelcovandewiel/Development/local/econetwork/.env
+
+[info] - info Linting and checking validity of types...
+
+[info] - info Creating an optimized production build...
+
+[info] Failed to compile.
+
+
+[info] ./node_modules/jpeg-exif/lib/index.js
+Module not found: Can't resolve 'fs'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/@react-pdf/pdfkit/lib/pdfkit.browser.js
+./node_modules/@react-pdf/renderer/lib/react-pdf.browser.es.js
+./src/pages/dashboard/invoices/[invoiceId].js
+
+
+[info] 
+> Build failed because of webpack errors
+
+[debug] [2024-02-04T12:49:11.428Z] Error: ENOENT: no such file or directory, open '/Users/eelcovandewiel/Development/local/econetwork/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
