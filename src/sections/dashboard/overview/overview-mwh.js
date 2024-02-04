@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 
-export const OverviewDoneTasks = (props) => {
+export const OverviewMWH = (props) => {
   const { amount } = props;
 
   return (
@@ -37,14 +37,17 @@ export const OverviewDoneTasks = (props) => {
             color="text.secondary"
             variant="body2"
           >
-            Done Tasks
+            Current portfolio
           </Typography>
           <Typography
             color="text.primary"
             variant="h4"
-          >
+          > <span>
             {amount}
+            </span> 
+            <span style={{fontSize: 16,marginLeft: 8}}>MWH</span>
           </Typography>
+       
         </Box>
       </Stack>
       <Divider />
@@ -58,13 +61,13 @@ export const OverviewDoneTasks = (props) => {
           }
           size="small"
         >
-          See all tasks
+          See overview
         </Button>
       </CardActions>
     </Card>
   );
 };
 
-OverviewDoneTasks.propTypes = {
+OverviewMWH.propTypes = {
   amount: PropTypes.number.isRequired,
 };

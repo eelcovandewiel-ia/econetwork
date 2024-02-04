@@ -65,22 +65,7 @@ export const useSections = () => {
               </SvgIcon>
             ),
           },
-          {
-            title: t(tokens.nav.crypto),
-            path: paths.dashboard.crypto,
-            icon: (
-              <SvgIcon fontSize="small">
-                <CurrencyBitcoinCircleIcon />
-              </SvgIcon>
-            ),
-            label: (
-              <Chip
-                color="primary"
-                label="New"
-                size="small"
-              />
-            ),
-          },
+         
           {
             title: t(tokens.nav.account),
             path: paths.dashboard.account,
@@ -175,25 +160,7 @@ export const useSections = () => {
               },
             ],
           },
-          {
-            title: t(tokens.nav.logistics),
-            path: paths.dashboard.logistics.index,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Truck01Icon />
-              </SvgIcon>
-            ),
-            items: [
-              {
-                title: t(tokens.nav.dashboard),
-                path: paths.dashboard.logistics.index,
-              },
-              {
-                title: t(tokens.nav.fleet),
-                path: paths.dashboard.logistics.fleet,
-              },
-            ],
-          },
+          
           {
             title: t(tokens.nav.academy),
             path: paths.dashboard.academy.index,
@@ -236,25 +203,7 @@ export const useSections = () => {
               },
             ],
           },
-          {
-            title: t(tokens.nav.socialMedia),
-            path: paths.dashboard.social.index,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Share07Icon />
-              </SvgIcon>
-            ),
-            items: [
-              {
-                title: t(tokens.nav.profile),
-                path: paths.dashboard.social.profile,
-              },
-              {
-                title: t(tokens.nav.feed),
-                path: paths.dashboard.social.feed,
-              },
-            ],
-          },
+         
           {
             title: t(tokens.nav.blog),
             path: paths.dashboard.blog.index,
@@ -278,251 +227,14 @@ export const useSections = () => {
               },
             ],
           },
-          {
-            title: t(tokens.nav.fileManager),
-            path: paths.dashboard.fileManager,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Upload04Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.kanban),
-            path: paths.dashboard.kanban,
-            icon: (
-              <SvgIcon fontSize="small">
-                <CheckDone01Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.mail),
-            path: paths.dashboard.mail,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Mail03Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.chat),
-            path: paths.dashboard.chat,
-            icon: (
-              <SvgIcon fontSize="small">
-                <MessageChatSquareIcon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.calendar),
-            path: paths.dashboard.calendar,
-            icon: (
-              <SvgIcon fontSize="small">
-                <CalendarIcon />
-              </SvgIcon>
-            ),
-          },
+         
+          
+          
+          
         ],
       },
-      {
-        subheader: t(tokens.nav.pages),
-        items: [
-          {
-            title: t(tokens.nav.auth),
-            icon: (
-              <SvgIcon fontSize="small">
-                <Lock01Icon />
-              </SvgIcon>
-            ),
-            items: [
-             
-              {
-                title: t(tokens.nav.register),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.register.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.register.modern,
-                  },
-                ],
-              },
-              {
-                title: t(tokens.nav.forgotPassword),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.forgotPassword.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.forgotPassword.modern,
-                  },
-                ],
-              },
-              {
-                title: t(tokens.nav.resetPassword),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.resetPassword.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.resetPassword.modern,
-                  },
-                ],
-              },
-              {
-                title: t(tokens.nav.verifyCode),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.verifyCode.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.verifyCode.modern,
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            title: t(tokens.nav.pricing),
-            path: paths.pricing,
-            icon: (
-              <SvgIcon fontSize="small">
-                <CreditCard01Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.checkout),
-            path: paths.checkout,
-            icon: (
-              <SvgIcon fontSize="small">
-                <LogOut01Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.contact),
-            path: paths.contact,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Mail04Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.error),
-            icon: (
-              <SvgIcon fontSize="small">
-                <XSquareIcon />
-              </SvgIcon>
-            ),
-            items: [
-              {
-                title: '401',
-                path: paths.notAuthorized,
-              },
-              {
-                title: '404',
-                path: paths.notFound,
-              },
-              {
-                title: '500',
-                path: paths.serverError,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        subheader: 'Misc',
-        items: [
-          {
-            title: 'Level 0',
-            icon: (
-              <SvgIcon fontSize="small">
-                <AlignLeft02Icon />
-              </SvgIcon>
-            ),
-            items: [
-              {
-                title: 'Level 1a',
-                items: [
-                  {
-                    title: 'Level 2a',
-                    items: [
-                      {
-                        title: 'Level 3a',
-                      },
-                      {
-                        title: 'Level 3b',
-                        disabled: true,
-                      },
-                    ],
-                  },
-                  {
-                    title: 'Level 2b',
-                  },
-                ],
-              },
-              {
-                title: 'Level 1b',
-              },
-            ],
-          },
-          {
-            title: 'Disabled',
-            disabled: true,
-            icon: (
-              <SvgIcon fontSize="small">
-                <XSquareIcon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: 'Label',
-            icon: (
-              <SvgIcon fontSize="small">
-                <File01Icon />
-              </SvgIcon>
-            ),
-            label: (
-              <Chip
-                color="primary"
-                label="New"
-                size="small"
-              />
-            ),
-          },
-          {
-            title: 'Blank',
-            path: paths.dashboard.blank,
-            icon: (
-              <SvgIcon fontSize="small">
-                <File01Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: 'External Link',
-            path: 'https://devias.io',
-            external: true,
-            icon: (
-              <SvgIcon fontSize="small">
-                <File01Icon />
-              </SvgIcon>
-            ),
-          },
-        ],
-      },
+  
+     
     ];
   }, [t]);
 };

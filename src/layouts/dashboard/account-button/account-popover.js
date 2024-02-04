@@ -25,8 +25,9 @@ export const AccountPopover = (props) => {
   const { anchorEl, onClose, open, ...other } = props;
   const router = useRouter();
   const auth = useAuth();
-  const user = useMockedUser();
+  const { user } = useAuth();
 
+  console.log("@@auth",user)
   const handleLogout = useCallback(async () => {
     try {
       onClose?.();
@@ -83,7 +84,7 @@ export const AccountPopover = (props) => {
           color="text.secondary"
           variant="body2"
         >
-          demo@devias.io
+         {user.email}
         </Typography>
       </Box>
       <Divider />

@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 
-export const OverviewOpenTickets = (props) => {
+export const OverviewOpenDeals = (props) => {
   const { amount } = props;
 
   return (
@@ -37,7 +37,7 @@ export const OverviewOpenTickets = (props) => {
             color="text.secondary"
             variant="body2"
           >
-            Open tickets
+            Open deals
           </Typography>
           <Typography
             color="text.primary"
@@ -58,13 +58,13 @@ export const OverviewOpenTickets = (props) => {
           }
           size="small"
         >
-          See all tickets
+          See all deals
         </Button>
       </CardActions>
     </Card>
   );
 };
 
-OverviewOpenTickets.propTypes = {
+OverviewOpenDeals.propTypes = {
   amount: PropTypes.number.isRequired,
 };

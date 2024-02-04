@@ -52,7 +52,7 @@ const useChartOptions = () => {
     },
     tooltip: {
       y: {
-        formatter: (value) => `${value}k events`,
+        formatter: (value) => `${value}MWH`,
       },
     },
     xaxis: {
@@ -84,13 +84,13 @@ const useChartOptions = () => {
     },
     yaxis: {
       labels: {
-        show: false,
+        show: true,
       },
     },
   };
 };
 
-export const OverviewSubscriptionUsage = (props) => {
+export const OverviewPortfolioGraph = (props) => {
   const { chartSeries } = props;
   const chartOptions = useChartOptions();
 
@@ -98,23 +98,8 @@ export const OverviewSubscriptionUsage = (props) => {
     <Card>
       <CardHeader
         subheader="Based on the selected period"
-        title="Subscription Usage"
-        action={
-          <Tabs value="year">
-            <Tab
-              label="Year"
-              value="year"
-            />
-            <Tab
-              label="Month"
-              value="month"
-            />
-            <Tab
-              label="Week"
-              value="week"
-            />
-          </Tabs>
-        }
+        title="Available MWH per month in portfolio"
+       
       />
       <Box sx={{ height: 336 }}>
         <Chart
@@ -128,6 +113,6 @@ export const OverviewSubscriptionUsage = (props) => {
   );
 };
 
-OverviewSubscriptionUsage.propTypes = {
+OverviewPortfolioGraph.propTypes = {
   chartSeries: PropTypes.array.isRequired,
 };

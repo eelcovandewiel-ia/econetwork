@@ -33,15 +33,15 @@ export const OverviewHelp = (props) => (
         sx={{ mt: 2 }}
         variant="h6"
       >
-        Need help figuring things out?
+       Need help?
       </Typography>
       <Typography
         color="text.secondary"
         sx={{ mt: 1 }}
         variant="body2"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
+     Our team is ready to support you in your journey here at EcoNetwork. We have a dedicated help center to help you with any questions you might have.
+    
       </Typography>
     </CardContent>
     <Divider />

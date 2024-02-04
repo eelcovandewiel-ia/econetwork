@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 
-export const OverviewPendingIssues = (props) => {
+export const OverviewPendingDeals = (props) => {
   const { amount } = props;
 
   return (
@@ -37,7 +37,7 @@ export const OverviewPendingIssues = (props) => {
             color="text.secondary"
             variant="body2"
           >
-            Pending Issues
+            Pending Deals
           </Typography>
           <Typography
             color="text.primary"
@@ -58,13 +58,13 @@ export const OverviewPendingIssues = (props) => {
           }
           size="small"
         >
-          See all issues
+          See all deals
         </Button>
       </CardActions>
     </Card>
   );
 };
 
-OverviewPendingIssues.propTypes = {
+OverviewPendingDeals.propTypes = {
   amount: PropTypes.number.isRequired,
 };

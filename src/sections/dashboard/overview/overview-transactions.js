@@ -12,6 +12,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
+import { useRouter } from 'next/navigation';
 
 import { Scrollbar } from 'src/components/scrollbar';
 import { SeverityPill } from 'src/components/severity-pill';
@@ -24,12 +25,17 @@ const statusMap = {
 
 export const OverviewTransactions = (props) => {
   const { transactions } = props;
+  const router = useRouter()
+
+  const openDeal=(id)=>{
+    console.log('open deal');
+    router.push('/dashboard/deals/'+id)
+  }
 
   return (
     <Card>
       <CardHeader
         title="Latest Transactions"
-        subheader="Based on the selected period"
         sx={{ pb: 0 }}
       />
       <Tabs
@@ -41,8 +47,8 @@ export const OverviewTransactions = (props) => {
           value="all"
         />
         <Tab
-          label="Confirmed"
-          value="confirmed"
+          label="Closed"
+          value="closed"
         />
         <Tab
           label="Pending"
@@ -57,11 +63,12 @@ export const OverviewTransactions = (props) => {
               const createdAtMonth = format(transaction.createdAt, 'LLL').toUpperCase();
               const createdAtDay = format(transaction.createdAt, 'd');
               const statusColor = statusMap[transaction.status];
+              const mwh=transaction.mwh;
               const type = transaction.type === 'receive' ? 'Payment received' : 'Payment sent';
               const amount =
                 (transaction.type === 'receive' ? '+' : '-') +
                 ' ' +
-                numeral(transaction.amount).format('$0,0.00');
+                numeral(transaction.price).format('$0,0.00');
               const amountColor = transaction.type === 'receive' ? 'success.main' : 'error.main';
 
               return (
@@ -69,6 +76,7 @@ export const OverviewTransactions = (props) => {
                   key={transaction.id}
                   hover
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  onClick={(E) => { openDeal(transaction.id) }}
                 >
                   <TableCell width={100}>
                     <Box
@@ -109,6 +117,14 @@ export const OverviewTransactions = (props) => {
                   </TableCell>
                   <TableCell>
                     <SeverityPill color={statusColor}>{transaction.status}</SeverityPill>
+                  </TableCell>
+                  <TableCell width={180}>
+                    <Typography
+                   
+                      variant="subtitle2"
+                    >
+                      {mwh} MWH
+                    </Typography>
                   </TableCell>
                   <TableCell width={180}>
                     <Typography
