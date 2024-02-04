@@ -9,7 +9,6 @@ import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 
 import { Seo } from 'src/components/seo';
-import { useMockedUser } from 'src/hooks/use-mocked-user';
 import { usePageView } from 'src/hooks/use-page-view';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard';
 import { AccountBillingSettings } from 'src/sections/dashboard/account/account-billing-settings';
@@ -17,6 +16,7 @@ import { AccountGeneralSettings } from 'src/sections/dashboard/account/account-g
 import { AccountNotificationsSettings } from 'src/sections/dashboard/account/account-notifications-settings';
 import { AccountTeamSettings } from 'src/sections/dashboard/account/account-team-settings';
 import { AccountSecuritySettings } from 'src/sections/dashboard/account/account-security-settings';
+import { useAuth } from 'src/hooks/use-auth';
 
 const now = new Date();
 
@@ -29,7 +29,7 @@ const tabs = [
 ];
 
 const Page = () => {
-  const user = useMockedUser();
+  const {user} = useAuth();
   const [currentTab, setCurrentTab] = useState('general');
 
   usePageView();
@@ -108,14 +108,14 @@ const Page = () => {
               members={[
                 {
                   avatar: '/assets/avatars/avatar-cao-yu.png',
-                  email: 'cao.yu@devias.io',
-                  name: 'Cao Yu',
+                  email: 'tim.hamers@gmail.com',
+                  name: 'Tim Hamers',
                   role: 'Owner',
                 },
                 {
                   avatar: '/assets/avatars/avatar-siegbert-gottfried.png',
-                  email: 'siegbert.gottfried@devias.io',
-                  name: 'Siegbert Gottfried',
+                  email: 'Massimo.Noto@gmail.com',
+                  name: 'Massimo Noto',
                   role: 'Standard',
                 },
               ]}

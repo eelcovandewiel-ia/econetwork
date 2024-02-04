@@ -33,7 +33,7 @@ export const PostCard = (props) => {
     <Card {...other}>
       <CardMedia
         component={RouterLink}
-        href={paths.dashboard.blog.postDetails}
+        href={paths.dashboard.news.postDetails}
         image={cover}
         sx={{ height: 280 }}
       />
@@ -44,7 +44,7 @@ export const PostCard = (props) => {
         <Link
           color="text.primary"
           component={RouterLink}
-          href={paths.dashboard.blog.postDetails}
+          href={paths.dashboard.news.postDetails}
           variant="h5"
         >
           {title}
@@ -75,9 +75,9 @@ export const PostCard = (props) => {
             direction="row"
             spacing={2}
           >
-            <Avatar src={authorAvatar}>{getInitials(authorName)}</Avatar>
+
             <Typography variant="subtitle2">
-              By {authorName} • {formattedPublishedAt}
+            {formattedPublishedAt}
             </Typography>
           </Stack>
           <Typography

@@ -15,9 +15,7 @@ import { OverviewTransactions } from 'src/sections/dashboard/overview/overview-t
 import { OverviewPendingDeals } from 'src/sections/dashboard/overview/overview-pending-deals';
 import { OverviewPortfolioGraph } from 'src/sections/dashboard/overview/overview-portfolio-graph';
 import { OverviewHelp } from 'src/sections/dashboard/overview/overview-help';
-import { OverviewJobs } from 'src/sections/dashboard/overview/overview-jobs';
 import { OverviewOpenDeals } from 'src/sections/dashboard/overview/overview-open-deals';
-import { OverviewTips } from 'src/sections/dashboard/overview/overview-tips';
 
 const now = new Date();
 
@@ -40,6 +38,7 @@ const transactions=[
     currency: 'usd',
     sender: 'Company A',
     mwh: -100,
+    energyType: 'Green gas',
     countryOrigin:'NL',
     countryDestination:'DE',
     status: 'pending',
@@ -52,6 +51,7 @@ const transactions=[
     currency: 'usd',
     sender: 'Producer A',
     mwh: 200,
+    energyType: 'Green gas',
     countryOrigin:'NL',
     countryDestination:'NL',
     status: 'closed',
@@ -64,6 +64,7 @@ const transactions=[
     currency: 'usd',
     sender: 'Company D',
     mwh: 100,
+    energyType: 'Green gas',
     countryOrigin:'NL',
     countryDestination:'DE',
     status: 'failed',
@@ -76,6 +77,7 @@ const transactions=[
     currency: 'usd',
     sender: 'Company E',
     mwh: -300,
+    energyType: 'Green gas',
     countryOrigin:'NL',
     countryDestination:'DE',
     status: 'closed',

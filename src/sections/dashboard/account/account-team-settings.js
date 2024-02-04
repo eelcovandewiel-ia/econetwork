@@ -37,13 +37,8 @@ export const AccountTeamSettings = (props) => {
             md={4}
           >
             <Stack spacing={1}>
-              <Typography variant="h6">Invite members</Typography>
-              <Typography
-                color="text.secondary"
-                variant="body2"
-              >
-                You currently pay for 2 Editor Seats.
-              </Typography>
+              <Typography variant="h6">Invite people to the organisation</Typography>
+             
             </Stack>
           </Grid>
           <Grid

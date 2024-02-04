@@ -22,16 +22,14 @@ import { Scrollbar } from 'src/components/scrollbar';
 
 const renderContent = (notification) => {
   switch (notification.type) {
-    case 'job_add': {
+    case 'deal_added': {
       const createdAt = format(notification.createdAt, 'MMM dd, h:mm a');
 
       return (
         <>
           <ListItemAvatar sx={{ mt: 0.5 }}>
-            <Avatar src={notification.avatar}>
-              <SvgIcon>
-                <User01Icon />
-              </SvgIcon>
+            <Avatar>
+             {notification.name.substr(0,1)}
             </Avatar>
           </ListItemAvatar>
           <ListItemText
@@ -47,13 +45,13 @@ const renderContent = (notification) => {
                   sx={{ mr: 0.5 }}
                   variant="subtitle2"
                 >
-                  {notification.author}
+                  {notification.name} of {notification.company}
                 </Typography>
                 <Typography
                   sx={{ mr: 0.5 }}
                   variant="body2"
                 >
-                  added a new job
+                  added you to a new deal
                 </Typography>
                 <Link
                   href="#"
@@ -120,16 +118,14 @@ const renderContent = (notification) => {
         </>
       );
     }
-    case 'company_created': {
+    case 'status_change': {
       const createdAt = format(notification.createdAt, 'MMM dd, h:mm a');
 
       return (
         <>
           <ListItemAvatar sx={{ mt: 0.5 }}>
-            <Avatar src={notification.avatar}>
-              <SvgIcon>
-                <User01Icon />
-              </SvgIcon>
+            <Avatar >
+              {notification.name.substr(0,1)}
             </Avatar>
           </ListItemAvatar>
           <ListItemText
@@ -146,20 +142,15 @@ const renderContent = (notification) => {
                   sx={{ mr: 0.5 }}
                   variant="subtitle2"
                 >
-                  {notification.author}
+                  {notification.name}
                 </Typography>
-                <Typography
-                  sx={{ mr: 0.5 }}
-                  variant="body2"
-                >
-                  created
-                </Typography>
+             
                 <Link
                   href="#"
                   underline="always"
                   variant="body2"
                 >
-                  {notification.company}
+                   completed the payment
                 </Link>
               </Box>
             }

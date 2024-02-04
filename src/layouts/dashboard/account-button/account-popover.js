@@ -27,37 +27,10 @@ export const AccountPopover = (props) => {
   const auth = useAuth();
   const { user } = useAuth();
 
-  console.log("@@auth",user)
   const handleLogout = useCallback(async () => {
     try {
       onClose?.();
-
-      switch (auth.issuer) {
-        case Issuer.Amplify: {
-          await auth.signOut();
-          break;
-        }
-
-        case Issuer.Auth0: {
-          await auth.logout();
-          break;
-        }
-
-        case Issuer.Firebase: {
-          await auth.signOut();
-          break;
-        }
-
-        case Issuer.JWT: {
-          await auth.signOut();
-          break;
-        }
-
-        default: {
-          console.warn('Using an unknown Auth Issuer, did not log out');
-        }
-      }
-
+      await auth.signOut();
       router.push(paths.index);
     } catch (err) {
       console.error(err);
@@ -89,23 +62,7 @@ export const AccountPopover = (props) => {
       </Box>
       <Divider />
       <Box sx={{ p: 1 }}>
-        <ListItemButton
-          component={RouterLink}
-          href={paths.dashboard.social.profile}
-          onClick={onClose}
-          sx={{
-            borderRadius: 1,
-            px: 1,
-            py: 0.5,
-          }}
-        >
-          <ListItemIcon>
-            <SvgIcon fontSize="small">
-              <User03Icon />
-            </SvgIcon>
-          </ListItemIcon>
-          <ListItemText primary={<Typography variant="body1">Profile</Typography>} />
-        </ListItemButton>
+       
         <ListItemButton
           component={RouterLink}
           href={paths.dashboard.account}

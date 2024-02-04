@@ -16,6 +16,7 @@ import { useRouter } from 'next/navigation';
 
 import { Scrollbar } from 'src/components/scrollbar';
 import { SeverityPill } from 'src/components/severity-pill';
+import { useCountries } from 'src/hooks/use-countries';
 
 const statusMap = {
   confirmed: 'success',
@@ -23,9 +24,11 @@ const statusMap = {
   failed: 'error',
 };
 
+
 export const OverviewTransactions = (props) => {
   const { transactions } = props;
   const router = useRouter()
+  const countries=useCountries();
 
   const openDeal=(id)=>{
     console.log('open deal');
@@ -64,7 +67,7 @@ export const OverviewTransactions = (props) => {
               const createdAtDay = format(transaction.createdAt, 'd');
               const statusColor = statusMap[transaction.status];
               const mwh=transaction.mwh;
-              const type = transaction.type === 'receive' ? 'Payment received' : 'Payment sent';
+              const type = transaction.type === 'receive' ? 'Sell' : 'Buy';
               const amount =
                 (transaction.type === 'receive' ? '+' : '-') +
                 ' ' +
@@ -115,6 +118,15 @@ export const OverviewTransactions = (props) => {
                       </Typography>
                     </div>
                   </TableCell>
+                  <TableCell width={250}>
+                    <Typography
+                   
+                      variant="subtitle2"
+                    >
+                      {countries.getCountry(transaction.countryOrigin)} - {countries.getCountry(transaction.countryDestination)}
+                    </Typography>
+
+                  </TableCell>
                   <TableCell>
                     <SeverityPill color={statusColor}>{transaction.status}</SeverityPill>
                   </TableCell>
@@ -125,6 +137,12 @@ export const OverviewTransactions = (props) => {
                     >
                       {mwh} MWH
                     </Typography>
+                    <Typography
+                        color="text.secondary"
+                        variant="body2"
+                      >
+                        {transaction.energyType}
+                      </Typography>
                   </TableCell>
                   <TableCell width={180}>
                     <Typography

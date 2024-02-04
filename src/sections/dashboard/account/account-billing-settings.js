@@ -36,13 +36,13 @@ const plans = [
     id: 'standard',
     icon: <AccountPlanIcon name="standard" />,
     name: 'Standard',
-    price: 4.99,
+    price: 99.99,
   },
   {
     id: 'business',
     icon: <AccountPlanIcon name="business" />,
     name: 'Business',
-    price: 29.99,
+    price: 299.99,
   },
 ];
 
@@ -58,7 +58,7 @@ export const AccountBillingSettings = (props) => {
       <Card>
         <CardHeader
           title="Change Plan"
-          subheader="You can upgrade and downgrade whenever you want"
+          subheader="Upgrade your plan to start using the full potential of our platform."
         />
         <CardContent sx={{ pt: 0 }}>
           <div>

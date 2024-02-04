@@ -33,18 +33,7 @@ const sections = [
             title: 'Customers',
             path: paths.dashboard.customers.index,
           },
-          {
-            title: 'Logistics',
-            path: paths.dashboard.logistics.index,
-          },
-          {
-            title: 'File Manager',
-            path: paths.dashboard.fileManager,
-          },
-          {
-            title: 'Academy',
-            path: paths.dashboard.academy.index,
-          },
+          
         ],
       },
     ],
@@ -53,7 +42,7 @@ const sections = [
     items: [
       {
         title: 'Blog',
-        path: paths.dashboard.blog.index,
+        path: paths.dashboard.news.index,
         icon: (
           <SvgIcon fontSize="small">
             <LayoutAlt02Icon />

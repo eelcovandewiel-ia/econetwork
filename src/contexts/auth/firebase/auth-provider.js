@@ -42,6 +42,7 @@ export const AuthProvider = (props) => {
 
   const handleAuthStateChanged = useCallback(
     (user) => {
+
       if (user) {
         // Here you should extract the complete user profile to make it available in your entire app.
         // The auth state only provides basic information.
@@ -52,8 +53,8 @@ export const AuthProvider = (props) => {
             user: {
               id: user.uid,
               avatar: user.photoURL || undefined,
-              email: user.email || 'anika.visser@devias.io',
-              name: 'Anika Visser',
+              email: user.email ,
+              name: user.displayName,
               plan: 'Premium',
             },
           },
@@ -83,7 +84,6 @@ export const AuthProvider = (props) => {
 
   const signInWithGoogle = useCallback(async () => {
     const provider = new GoogleAuthProvider();
-
     await signInWithPopup(auth, provider);
   }, []);
 
