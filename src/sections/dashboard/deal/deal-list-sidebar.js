@@ -21,14 +21,14 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useCountries } from 'src/hooks/use-countries';
 
-const customers = [
-  'Blind Spots Inc.',
-  'Dispatcher Inc.',
-  'ACME SRL',
-  'Novelty I.S',
-  'Beauty Clinic SRL',
-  'Division Inc.',
-];
+const customers = {
+  1:'Blind Spots Inc.',
+  2:'Dispatcher Inc.',
+  3:'ACME SRL',
+  4:'Novelty I.S',
+  5: 'Beauty Clinic SRL',
+  6: 'Division Inc.',
+}
 
 
 
@@ -149,7 +149,56 @@ export const DealListSidebar = (props) => {
             }
           />
         </form>
-
+        <div>
+          <FormLabel
+            sx={{
+              display: 'block',
+              mb: 2,
+            }}
+          >
+            Energy type
+          </FormLabel>
+          
+            <Select
+              fullWidth
+              onChange={(e)=>handleChange('energyType',e)}
+              value="all"
+            >
+              <MenuItem value="all">
+                <em>All</em>
+              </MenuItem>
+              <MenuItem value="greenGas">
+              Green gas
+              </MenuItem>
+              <MenuItem value="electricity">
+             Electricity
+              </MenuItem>
+            </Select>         
+        </div>
+        <div>
+          <FormLabel
+            sx={{
+              display: 'block',
+              mb: 2,
+            }}
+          >
+           Partner company
+          </FormLabel>
+          
+            <Select
+              fullWidth
+              onChange={(e)=>handleChange('partnerCompany',e)}
+              value="all"
+            >
+              <MenuItem value="all">
+                <em>All</em>
+              </MenuItem>
+              {Object.keys(customers).map((value) => (
+               <MenuItem key={value}
+                  value={value}>{customers[value]}</MenuItem>
+              ))}
+            </Select>         
+        </div>
         <div>
           <FormLabel
             sx={{
@@ -227,33 +276,7 @@ export const DealListSidebar = (props) => {
               {Object.keys(countries.all).map((value) => (
                <MenuItem key={value}
                   value={value}>{countries.all[value]}</MenuItem>
-              ))};
-            </Select>
-         
-        </div>
-
-        <div>
-          <FormLabel
-            sx={{
-              display: 'block',
-              mb: 2,
-            }}
-          >
-            Destination country
-          </FormLabel>
-          
-            <Select
-              fullWidth
-              onChange={handleCountryChange}
-              value="all"
-            >
-              <MenuItem value="all">
-                <em>All countries</em>
-              </MenuItem>
-              {Object.keys(countries.all).map((value) => (
-               <MenuItem key={value}
-                  value={value}>{countries.all[value]}</MenuItem>
-              ))};
+              ))}
             </Select>
          
         </div>
