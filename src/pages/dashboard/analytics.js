@@ -12,10 +12,10 @@ import { Seo } from 'src/components/seo';
 import { usePageView } from 'src/hooks/use-page-view';
 import { useSettings } from 'src/hooks/use-settings';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard';
-import { AnalyticsStats } from 'src/sections/dashboard/analytics/analytics-stats';
 import { AnalyticsEnergyTypePie } from 'src/sections/dashboard/analytics/analytics-energy-type-pie';
 import { AnalyticsByCountry } from 'src/sections/dashboard/analytics/analytics-by-country';
 import { AnalyticsVolumeChart } from 'src/sections/dashboard/analytics/analytics-volume-chart';
+import { AnalyticsVolumeChartFuture } from 'src/sections/dashboard/analytics/analytics-volume-chart-future';
 import { AnalyticsSummary } from 'src/sections/dashboard/analytics/analytics-summary';
 
 const Page = () => {
@@ -87,6 +87,23 @@ const Page = () => {
                   ]}
                 />
                 </Grid>
+                <Grid
+              xs={12}
+              md={12}
+            >
+            <AnalyticsVolumeChartFuture        
+                  chartSeries={[
+
+                    {
+                      name: 'Active portfolio',
+                      data: [
+                        3350, 2000, 1500, 1200, 1000, 600, 200  , 100, 0, 0, 0, 0,
+                      ],
+                    }
+                  ]}
+                />
+                </Grid>
+
             <Grid
               xs={12}
               lg={4}

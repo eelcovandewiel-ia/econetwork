@@ -9,7 +9,6 @@ export const paths = {
   },
   contact: '/contact',
 
-  
   dashboard: {
     index: '/dashboard',
     account: '/dashboard/account',
@@ -26,18 +25,13 @@ export const paths = {
       details: '/dashboard/customers/:customerId',
       edit: '/dashboard/customers/:customerId/edit',
     },
-    invoices: {
-      index: '/dashboard/invoices',
-      details: '/dashboard/invoices/:orderId',
+    trades: {
+      index: '/dashboard/trades',
+      details: '/dashboard/trades/:orderId',
     },
-
     orders: {
       index: '/dashboard/orders',
       details: '/dashboard/orders/:orderId',
-    },
-    products: {
-      index: '/dashboard/products',
-      create: '/dashboard/products/create',
     },
 
   },

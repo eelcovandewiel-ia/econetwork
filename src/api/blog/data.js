@@ -13,10 +13,9 @@ export const posts = [
     cover: '/assets/covers/business-2-4x4-large.png',
     publishedAt: subMinutes(subSeconds(now, 16), 45).getTime(),
     readTime: '5 min',
-    shortDescription:
-      'Aliquam dapibus elementum nulla at malesuada. Ut mi nisl, aliquet non mollis vel, feugiat non nibh.',
-    title: 'Why I Still Lisp, and You Should Too',
-  },
+    "title": "Unlocking Green Energy: The Role of Biogas Certificates in Sustainable Development",
+    "shortDescription": "Explore the significance of biogas certificates as tools to promote sustainable energy production and reduce greenhouse gas emissions through biogas technology."
+    },
   {
     id: 'a9c19d0caf2ca91020aacd1f',
     author: {
@@ -41,9 +40,9 @@ export const posts = [
     cover: '/assets/covers/minimal-2-4x4-large.png',
     publishedAt: subHours(subMinutes(subSeconds(now, 6), 46), 16).getTime(),
     readTime: '3 min',
-    shortDescription:
-      'Praesent eget leo mauris. Morbi ac vulputate nibh. In hac habitasse platea dictumst.',
-    title: 'How Model View Controller (MVC) Architectures Work',
+    "title": "Biogas Certification: Ensuring Quality and Environmental Benefits",
+    "shortDescription": "Delve into the world of biogas certification and its importance in guaranteeing the quality and environmental benefits of biogas production, highlighting its role in the renewable energy sector."
+  
   },
   {
     id: 'c597c300fe3f817c41a2f01d',
@@ -55,9 +54,9 @@ export const posts = [
     cover: '/assets/covers/minimal-1-4x4-large.png',
     publishedAt: subDays(subHours(subMinutes(subSeconds(now, 52), 39), 7), 5).getTime(),
     readTime: '1 min',
-    shortDescription:
-      'Phasellus eu commodo lacus, eget tristique nunc. Ut ullamcorper semper nunc sit amet vehicula.',
-    title: 'Generating Passive Income Is Hard, Here Is a Better Option',
+    "title": "Biogas: A Pathway to Renewable Energy Certificates",
+  "shortDescription": "Discover how biogas facilities can generate Renewable Energy Certificates (RECs) and the potential economic and environmental advantages associated with this renewable energy market."
+
   },
 ];
 
