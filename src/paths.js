@@ -15,6 +15,7 @@ export const paths = {
     analytics: '/dashboard/analytics',
     blank: '/dashboard/blank',
     portfolio: '/dashboard/portfolio',
+    deals: '/dashboard/deals',
     news: {
       index: '/dashboard/news',
       postDetails: '/dashboard/news/:postId',
@@ -25,10 +26,7 @@ export const paths = {
       details: '/dashboard/customers/:customerId',
       edit: '/dashboard/customers/:customerId/edit',
     },
-    trades: {
-      index: '/dashboard/trades',
-      details: '/dashboard/trades/:orderId',
-    },
+
     orders: {
       index: '/dashboard/orders',
       details: '/dashboard/orders/:orderId',

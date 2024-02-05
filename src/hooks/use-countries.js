@@ -55,7 +55,8 @@ const countries={
 
     return {
         getCountry,
-        countries
+        countries,
+        all: countries
     };
   };
   
