@@ -159,8 +159,6 @@ const Page = () => {
                 chartSeries={portfolioGraph}
               />
             </Grid>
-            
-        
           
             <Grid xs={6}>
               <OverviewHelp />

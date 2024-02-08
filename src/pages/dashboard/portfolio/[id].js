@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import ArrowLeftIcon from '@untitled-ui/icons-react/build/esm/ArrowLeft';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -19,10 +18,7 @@ import { useMounted } from 'src/hooks/use-mounted';
 import { usePageView } from 'src/hooks/use-page-view';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard';
 import { paths } from 'src/paths';
-import { InvoicePdfDialog } from 'src/sections/dashboard/invoice/invoice-pdf-dialog';
-import { InvoicePdfDocument } from 'src/sections/dashboard/invoice/invoice-pdf-document';
-import { InvoicePreview } from 'src/sections/dashboard/invoice/invoice-preview';
-import { getInitials } from 'src/utils/get-initials';
+import { InvoicePreview } from 'src/sections/dashboard/portfolio/portfolio-preview';
 
 const useInvoice = () => {
   const isMounted = useMounted();
@@ -123,7 +119,7 @@ const Page = () => {
                 >
                 
                   <PDFDownloadLink
-                    document={<InvoicePdfDocument invoice={invoice} />}
+                   
                     fileName="invoice"
                     style={{ textDecoration: 'none' }}
                   >
@@ -141,11 +137,7 @@ const Page = () => {
           </Stack>
         </Container>
       </Box>
-      <InvoicePdfDialog
-        invoice={invoice}
-        onClose={dialog.handleClose}
-        open={dialog.open}
-      />
+      
     </>
   );
 };

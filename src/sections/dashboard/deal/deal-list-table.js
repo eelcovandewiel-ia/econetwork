@@ -13,8 +13,17 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import { useCountries } from 'src/hooks/use-countries';
-import { RouterLink } from 'src/components/router-link';
+
 import { paths } from 'src/paths';
+import { SeverityPill } from 'src/components/severity-pill';
+import { Box } from '@mui/system';
+import { useRouter } from 'next/router';
+
+const statusMap = {
+  confirmed: 'success',
+  on_hold: 'warning',
+  failed: 'error',
+};
 
 const statusColorsMap = {
   canceled: 'error',
@@ -22,105 +31,105 @@ const statusColorsMap = {
   pending: 'warning',
 };
 
+
 const ItemRow = (props) => {
-  const { item, ...other } = props;
-  const countries = useCountries();
-  const totalAmount = numeral(item.totalAmount).format('0,0.00');
-  const issueDate = item.issueDate && format(item.issueDate, 'dd/MM/yyyy');
-  const dueDate = item.dueDate && format(item.dueDate, 'dd/MM/yyyy');
+  const {item,countries}=props;
+  const router = useRouter();
+
+  const createdAtMonth = format(item.createdAt, 'LLL').toUpperCase();
+  const createdAtDay = format(item.createdAt, 'd');
+  const statusColor = statusMap[item.status];
+  const mwh=item.mwh;
+  const type = item.type === 'receive' ? 'Sell' : 'Buy';
+  const amount =
+    (item.type === 'receive' ? '+' : '-') +
+    ' ' +
+    numeral(item.price).format('$0,0.00');
+  const amountColor = item.type === 'receive' ? 'success.main' : 'error.main';
+  const openDeal=(id)=>{
+    router.push('/dashboard/deals/'+id)
+  }
 
   return (
     <TableRow
+      key={item.id}
+      hover
       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-      {...other}
+      onClick={(E) => { openDeal(item.id) }}
     >
-      <TableCell width="25%">
-        <Stack
-          alignItems="center"
-          direction="row"
-          spacing={2}
-          component={RouterLink}
-          href={paths.dashboard.portfolio+'/'+item.id}
+      <TableCell width={100}>
+        <Box
           sx={{
-            display: 'inline-flex',
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
+            p: 1,
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'dark' ? 'neutral.800' : 'neutral.100',
+            borderRadius: 2,
+            maxWidth: 'fit-content',
           }}
         >
-         
-          <div>
-            <Typography
-              color="text.primary"
-              variant="subtitle2"
-            >
-              {item.number}
-            </Typography>
-            <Typography
-              color="text.secondary"
-              variant="body2"
-            >
-              {item.count} contracts - {item.energyType}
-            </Typography>
-          </div>
-        </Stack>
+          <Typography
+            align="center"
+            color="text.primary"
+            variant="caption"
+          >
+            {createdAtMonth}
+          </Typography>
+          <Typography
+            align="center"
+            color="text.primary"
+            variant="h6"
+          >
+            {createdAtDay}
+          </Typography>
+        </Box>
       </TableCell>
       <TableCell>
-        <Typography variant="subtitle2">
-          {item.currency}
-          {totalAmount}
-        </Typography>
+        <div>
+          <Typography variant="subtitle2">{item.sender}</Typography>
+          <Typography
+            color="text.secondary"
+            variant="body2"
+          >
+            {type}
+          </Typography>
+        </div>
+      </TableCell>
+      <TableCell width={250}>
         <Typography
-              color="text.secondary"
-              variant="body2"
-            >
-             {item.mwh} MWh
-            </Typography>
+       
+          variant="subtitle2"
+        >
+          {countries.getCountry(item.countryOrigin)} - {countries.getCountry(item.countryDestination)}
+        </Typography>
 
       </TableCell>
       <TableCell>
-        <Typography variant="subtitle2">Issued</Typography>
-        <Typography
-          color="text.secondary"
-          variant="body2"
-        >
-          {issueDate}
-        </Typography>
+        <SeverityPill color={statusColor}>{item.status}</SeverityPill>
       </TableCell>
-      <TableCell>
-
-        </TableCell>
-      <TableCell>
-        <Typography variant="subtitle2">Expiry</Typography>
+      <TableCell width={180}>
         <Typography
-          color="text.secondary"
-          variant="body2"
+       
+          variant="subtitle2"
         >
-          {dueDate}
+          {mwh} MWH
         </Typography>
-      </TableCell>
-
-      <TableCell>
-        <Typography variant="subtitle2">Country</Typography>
         <Typography
-          color="text.secondary"
-          variant="body2"
-        >
-        {countries.getCountry(item.country)}
-        </Typography>
+            color="text.secondary"
+            variant="body2"
+          >
+            {item.energyType}
+          </Typography>
       </TableCell>
-      
-      <TableCell align="right">
-        <IconButton
-          component={RouterLink}
-          href={paths.dashboard.portfolio+'/'+item.id}
+      <TableCell width={180}>
+        <Typography
+          color={amountColor}
+          variant="subtitle2"
         >
-          <SvgIcon>
-            <ArrowRightIcon />
-          </SvgIcon>
-        </IconButton>
+          {amount}
+        </Typography>
       </TableCell>
     </TableRow>
-  );
+  )
 };
 
 ItemRow.propTypes = {
@@ -137,7 +146,7 @@ export const DealListTable = (props) => {
     page = 0,
     rowsPerPage = 0,
   } = props;
-
+  const countries=useCountries();
   let content;
 
     content = (
@@ -148,6 +157,7 @@ export const DealListTable = (props) => {
               <ItemRow
                 key={item.id}
                 item={item}
+                countries={countries}
               />
             ))}
           </TableBody>

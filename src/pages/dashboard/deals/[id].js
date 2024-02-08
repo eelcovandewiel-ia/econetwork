@@ -1,39 +1,38 @@
 import { useCallback, useEffect, useState } from 'react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { format } from 'date-fns';
 import ArrowLeftIcon from '@untitled-ui/icons-react/build/esm/ArrowLeft';
-import Avatar from '@mui/material/Avatar';
+import CalendarIcon from '@untitled-ui/icons-react/build/esm/Calendar';
+import ChevronDownIcon from '@untitled-ui/icons-react/build/esm/ChevronDown';
+import Edit02Icon from '@untitled-ui/icons-react/build/esm/Edit02';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 
-import { invoicesApi } from 'src/api/invoices';
 import { RouterLink } from 'src/components/router-link';
 import { Seo } from 'src/components/seo';
-import { useDialog } from 'src/hooks/use-dialog';
 import { useMounted } from 'src/hooks/use-mounted';
 import { usePageView } from 'src/hooks/use-page-view';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard';
 import { paths } from 'src/paths';
-import { InvoicePdfDialog } from 'src/sections/dashboard/invoice/invoice-pdf-dialog';
-import { InvoicePdfDocument } from 'src/sections/dashboard/invoice/invoice-pdf-document';
-import { InvoicePreview } from 'src/sections/dashboard/invoice/invoice-preview';
-import { getInitials } from 'src/utils/get-initials';
+import { OrderItems } from 'src/sections/dashboard/order/order-items';
+import { OrderLogs } from 'src/sections/dashboard/order/order-logs';
+import { DealSummary } from 'src/sections/dashboard/deal/deal-summary';
+import { dealsApi } from 'src/api/deals';
 
-const useInvoice = () => {
+const useDeal = () => {
   const isMounted = useMounted();
-  const [invoice, setInvoice] = useState(null);
+  const [item, setItem] = useState(null);
 
-  const handleInvoiceGet = useCallback(async () => {
+  const handleOrderGet = useCallback(async () => {
     try {
-      const response = await invoicesApi.getInvoice();
+      const response = await dealsApi.getItem();
 
       if (isMounted()) {
-        setInvoice(response);
+        setItem(response);
       }
     } catch (err) {
       console.error(err);
@@ -42,28 +41,28 @@ const useInvoice = () => {
 
   useEffect(
     () => {
-      handleInvoiceGet();
+      handleOrderGet();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
-  return invoice;
+  return item;
 };
 
 const Page = () => {
-  const invoice = useInvoice();
-  const dialog = useDialog();
+  const item = useDeal();
 
   usePageView();
-
-  if (!invoice) {
+  if (!item) {
     return null;
   }
 
+  const createdAt = format(item.createdAt, 'dd/MM/yyyy HH:mm');
+
   return (
     <>
-      <Seo title="Dashboard: Invoice Details" />
+      <Seo title="Dashboard: Order Details" />
       <Box
         component="main"
         sx={{
@@ -72,80 +71,86 @@ const Page = () => {
         }}
       >
         <Container maxWidth="lg">
-          <Stack
-            divider={<Divider />}
-            spacing={4}
-          >
-            <Stack spacing={4}>
-              <div>
-                <Link
-                  color="text.primary"
-                  component={RouterLink}
-                  href={paths.dashboard.portfolio}
-                  sx={{
-                    alignItems: 'center',
-                    display: 'inline-flex',
-                  }}
-                  underline="hover"
-                >
-                  <SvgIcon sx={{ mr: 1 }}>
-                    <ArrowLeftIcon />
-                  </SvgIcon>
-                  <Typography variant="subtitle2">Portfolio</Typography>
-                </Link>
-              </div>
+          <Stack spacing={4}>
+            <div>
+              <Link
+                color="text.primary"
+                component={RouterLink}
+                href={paths.dashboard.deals}
+                sx={{
+                  alignItems: 'center',
+                  display: 'inline-flex',
+                }}
+                underline="hover"
+              >
+                <SvgIcon sx={{ mr: 1 }}>
+                  <ArrowLeftIcon />
+                </SvgIcon>
+                <Typography variant="subtitle2">Deals</Typography>
+              </Link>
+            </div>
+            <div>
               <Stack
                 alignItems="flex-start"
                 direction="row"
                 justifyContent="space-between"
-                spacing={4}
+                spacing={3}
               >
-                <Stack
-                  alignItems="center"
-                  direction="row"
-                  spacing={2}
-                >
-                 
-                  <div>
-                    <Typography variant="h4">{invoice.number}</Typography>
+                <Stack spacing={1}>
+                  <Typography variant="h4">{item.nr}</Typography>
+                  <Stack
+                    alignItems="center"
+                    direction="row"
+                    spacing={1}
+                  >
                     <Typography
                       color="text.secondary"
                       variant="body2"
                     >
-                      {invoice.customer.name}
+                      Started on
                     </Typography>
-                  </div>
+                    <SvgIcon color="action">
+                      <CalendarIcon />
+                    </SvgIcon>
+                    <Typography variant="body2">{createdAt}</Typography>
+                  </Stack>
                 </Stack>
-                <Stack
-                  alignItems="center"
-                  direction="row"
-                  spacing={2}
-                >
-                
-                  <PDFDownloadLink
-                    document={<InvoicePdfDocument invoice={invoice} />}
-                    fileName="invoice"
-                    style={{ textDecoration: 'none' }}
+                <div>
+                  <Stack
+                    alignItems="center"
+                    direction="row"
+                    spacing={2}
                   >
                     <Button
-                      color="primary"
+                      color="inherit"
+                      endIcon={
+                        <SvgIcon>
+                          <Edit02Icon />
+                        </SvgIcon>
+                      }
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      endIcon={
+                        <SvgIcon>
+                          <ChevronDownIcon />
+                        </SvgIcon>
+                      }
                       variant="contained"
                     >
-                      Download
+                      Action
                     </Button>
-                  </PDFDownloadLink>
-                </Stack>
+                  </Stack>
+                </div>
               </Stack>
-            </Stack>
-            <InvoicePreview invoice={invoice} />
+            </div>
+            <DealSummary item={item} />
+            <OrderItems items={item.items || []} />
+            <OrderLogs logs={item.logs || []} />
           </Stack>
         </Container>
       </Box>
-      <InvoicePdfDialog
-        invoice={invoice}
-        onClose={dialog.handleClose}
-        open={dialog.open}
-      />
     </>
   );
 };

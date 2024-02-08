@@ -8,7 +8,7 @@ import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import { DealsApi } from 'src/api/deals';
+import { dealsApi } from 'src/api/deals';
 import { Seo } from 'src/components/seo';
 import { useMounted } from 'src/hooks/use-mounted';
 import { usePageView } from 'src/hooks/use-page-view';
@@ -68,9 +68,10 @@ const useStore = (searchState) => {
 
   const handleGet = useCallback(async () => {
     try {
-      const response = await DealsApi.getList(searchState);
+      const response = await dealsApi.getList(searchState);
 
       if (isMounted()) {
+        console.log("@@@response",response);
         setState({
           items: response.data,
           itemsCount: response.count,
