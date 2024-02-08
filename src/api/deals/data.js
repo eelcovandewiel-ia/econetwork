@@ -66,45 +66,85 @@ export const listData =[
 export const itemData = {
   id: '5ecb8a6879877087d4aa2690',
 nr:'A100',
+mwh:"1000",
   coupon: null,
   createdAt: subDays(subHours(now, 4), 1).getTime(),
   currency: '$',
-  customer: {
+  productionDevice: 'Gas generator',
+  productionDeviceNr:'124A34431A1',
+  energyType: 'Green gas',
+  buyer: {
+    company:"Company A",
     address1: 'Street John Wick, no. 7',
     address2: 'House #25',
-    city: 'San Diego',
-    country: 'USA',
-    email: 'miron.vitold@devias.io',
+    city: 'Amsterdam',
+    country: 'NL',
+    email: 'test@test.com',
     name: 'Miron Vitold',
+    phonenumber:"06123456789",
+    registryAccountNr:"12345",
+    registryDatabase:"NL",
+    registryOperator:"Operator"
+  },
+  seller: {
+
+    company:"Company B",
+    address1: 'Street John Wick, no. 7',
+    address2: 'House #25',
+    city: 'berlin',
+    country: 'DE',
+    email: 'test@test.com',
+    name: 'Miron Vitold',
+    phonenumber:"06123456789",
+    registryAccountNr:"12345",
+    registryDatabase:"DE",
+    registryOperator:"Operator"
+    
   },
   items: [
     {
       id: '5ecb8abbdd6dfb1f9d6bf98b',
-      billingCycle: 'monthly',
-      currency: '$',
-      name: 'Project Points',
+      productionPeriod: 'March 2023',
+      technology: 'Green gas extraction',
+      deliveryDate: '1-4-2024',
       quantity: 25,
-      unitAmount: 50.25,
+      certificatePrice: 20,
+      contractPrice: 500
     },
     {
-      id: '5ecb8ac10f116d04bed990eb',
-      billingCycle: 'monthly',
-      currency: '$',
-      name: 'Freelancer Subscription',
-      quantity: 1,
-      unitAmount: 5.0,
-    },
+      id: '5ecb8abbdd6ddb1f9d6bf98b',
+      productionPeriod: 'March 2023',
+      technology: 'Green gas extraction v2',
+      deliveryDate: '4-4-2024',
+      quantity: 25,
+      certificatePrice: 30,
+      contractPrice: 600
+    }
   ],
   logs: [
     {
       id: '9a50be1fa5ec7317d459d5a8',
       createdAt: subHours(Date.now(), 18).getTime(),
-      message: 'Stripe charge complete (Charge ID: 5ecb8a6879877087d4aa2690)',
+      message: 'Certificates transferred',
+    },
+    {
+      id: '9a50be1fa5ec7317d459d5a8',
+      createdAt: subHours(Date.now(), 18).getTime(),
+      message: 'Payment received by seller',
+    }, {
+      id: '9a50be1fa5ec7317d459d5a8',
+      createdAt: subHours(Date.now(), 18).getTime(),
+      message: 'Payment sent from buyer',
     },
     {
       id: '41845b427db837502b4d6a57',
       createdAt: subHours(Date.now(), 21).getTime(),
-      message: 'Order status changed from Pending payment to Completed.',
+      message: 'Completed order details',
+    },
+    {
+      id: '41845b427db837502b4d6a57',
+      createdAt: subHours(Date.now(), 21).getTime(),
+      message: 'Order created by Eelco van de Wiel',
     },
   ],
   number: 'DEV-103',

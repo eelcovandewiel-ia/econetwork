@@ -11,6 +11,8 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { PropertyList } from 'src/components/property-list';
 import { PropertyListItem } from 'src/components/property-list-item';
+import { Grid } from '@mui/material';
+import { SeverityPill } from 'src/components/severity-pill';
 
 const statusOptions = ['Canceled', 'Complete', 'Rejected'];
 
@@ -30,103 +32,56 @@ export const DealSummary = (props) => {
     <Card {...other}>
       <CardHeader title="Basic info" />
       <Divider />
-      <PropertyList>
-        <PropertyListItem
-          align={align}
-          label="Customer"
-        >
-          <Typography variant="subtitle2">{item.customer.name}</Typography>
-          <Typography
-            color="text.secondary"
-            variant="body2"
-          >
-            {item.customer.address1}
-          </Typography>
-          <Typography
-            color="text.secondary"
-            variant="body2"
-          >
-            {item.customer.city}
-          </Typography>
-          <Typography
-            color="text.secondary"
-            variant="body2"
-          >
-            {item.customer.country}
-          </Typography>
-        </PropertyListItem>
-        <Divider />
-        <PropertyListItem
-          align={align}
-          label="ID"
-          value={item.id}
-        />
-        <Divider />
-        <PropertyListItem
-          align={align}
-          label="Invoice"
-          value={item.number}
-        />
-        <Divider />
-        <PropertyListItem
-          align={align}
-          label="Date"
-          value={createdAt}
-        />
-        <Divider />
-        <PropertyListItem
-          align={align}
-          label="Promotion Code"
-          value={item.promotionCode}
-        />
-        <Divider />
-        <PropertyListItem
-          align={align}
-          label="Total Amount"
-          value={`${item.currency}${item.totalAmount}`}
-        />
-        <Divider />
-        <PropertyListItem
-          align={align}
-          label="Status"
-        >
-          <Stack
-            alignItems={{
-              xs: 'stretch',
-              sm: 'center',
-            }}
-            direction={{
-              xs: 'column',
-              sm: 'row',
-            }}
-            spacing={1}
-          >
-            <TextField
+    
+          <PropertyList>
+           
+            <PropertyListItem
+              align={align}
+              label="Date"
+              value={createdAt}
+            />
+            <Divider />
+            <PropertyListItem
+              align={align}
+              label="Deal nr"
+              value={item.nr}
+            />
+            <Divider />
+            <PropertyListItem
+              align={align}
+              label="Total Amount"
+              value={`${item.currency}${item.totalAmount}`}
+            />
+          <PropertyListItem
+              align={align}
+              label="Total MWh"
+              value={`${item.mwh} MWh`}
+            />
+             <PropertyListItem
+              align={align}
+              label="Energy type"
+              value={`${item.energyType}`}
+            />
+
+            <PropertyListItem
+              align={align}
+              label="Production device"
+              value={`${item.productionDevice}`}
+            />
+           <PropertyListItem
+              align={align}
+              label="GSRN "
+              value={`${item.productionDeviceNr}`}
+            />
+
+            <PropertyListItem
+              align={align}
               label="Status"
-              margin="normal"
-              name="status"
-              onChange={handleChange}
-              select
-              SelectProps={{ native: true }}
-              sx={{
-                flexGrow: 1,
-                minWidth: 150,
-              }}
-              value={status}
-            >
-              {statusOptions.map((option) => (
-                <option
-                  key={option}
-                  value={option}
-                >
-                  {option}
-                </option>
-              ))}
-            </TextField>
-            <Button variant="contained">Save</Button>
-          </Stack>
-        </PropertyListItem>
-      </PropertyList>
+              value={ <SeverityPill>{item.status}</SeverityPill>}
+            />
+
+          </PropertyList>
+       
     </Card>
   );
 };

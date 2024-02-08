@@ -22,6 +22,8 @@ import { OrderItems } from 'src/sections/dashboard/order/order-items';
 import { OrderLogs } from 'src/sections/dashboard/order/order-logs';
 import { DealSummary } from 'src/sections/dashboard/deal/deal-summary';
 import { dealsApi } from 'src/api/deals';
+import { DealParties } from 'src/sections/dashboard/deal/deal-parties';
+import { DealItems } from 'src/sections/dashboard/deal/deal-items';
 
 const useDeal = () => {
   const isMounted = useMounted();
@@ -146,7 +148,8 @@ const Page = () => {
               </Stack>
             </div>
             <DealSummary item={item} />
-            <OrderItems items={item.items || []} />
+            <DealParties item={item} />
+            <DealItems items={item.items || []} />
             <OrderLogs logs={item.logs || []} />
           </Stack>
         </Container>
